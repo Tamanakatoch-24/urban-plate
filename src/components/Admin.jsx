@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+const API_URL = "https://urban-plate-2.onrender.com";
+
 // Format date without timezone problems
 const parseReservationDate = (value) => {
   if (!value) return null;
@@ -66,7 +68,7 @@ function Admin() {
       }
 
       const response = await axios.get(
-        "http://localhost:5000/api/reservations",
+        `${API_URL}/api/reservations`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -91,7 +93,7 @@ function Admin() {
     }
   };
 
-  // Fetch all customer reviews (Admin only)
+  // Fetch all customer reviews
   const fetchReviews = async () => {
     setReviewsLoading(true);
     setReviewsError("");
@@ -100,7 +102,7 @@ function Admin() {
       const token = localStorage.getItem("adminToken");
 
       const response = await axios.get(
-        "http://localhost:5000/api/reviews/admin/all",
+        `${API_URL}/api/reviews/admin/all`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -123,7 +125,7 @@ function Admin() {
       const token = localStorage.getItem("adminToken");
 
       const response = await axios.patch(
-        `http://localhost:5000/api/reviews/${id}/status`,
+        `${API_URL}/api/reviews/${id}/status`,
         { status },
         {
           headers: {
@@ -159,7 +161,7 @@ function Admin() {
       const token = localStorage.getItem("adminToken");
 
       await axios.delete(
-        `http://localhost:5000/api/reviews/${id}`,
+        `${API_URL}/api/reviews/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -186,7 +188,7 @@ function Admin() {
       const token = localStorage.getItem("adminToken");
 
       const response = await axios.patch(
-        `http://localhost:5000/api/reservations/${id}/status`,
+        `${API_URL}/api/reservations/${id}/status`,
         { status },
         {
           headers: {
@@ -225,7 +227,7 @@ function Admin() {
       const token = localStorage.getItem("adminToken");
 
       await axios.delete(
-        `http://localhost:5000/api/reservations/${id}`,
+        `${API_URL}/api/reservations/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

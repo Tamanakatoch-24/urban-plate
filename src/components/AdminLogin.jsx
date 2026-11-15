@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+const API_URL = "https://urban-plate-2.onrender.com";
+
 function AdminLogin() {
   const navigate = useNavigate();
 
@@ -28,7 +30,7 @@ function AdminLogin() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/admin/login",
+        `${API_URL}/api/admin/login`,
         formData
       );
 

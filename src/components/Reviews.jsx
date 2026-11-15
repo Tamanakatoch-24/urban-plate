@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+const API_URL = "https://urban-plate-2.onrender.com";
+
 function Reviews() {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -15,11 +17,10 @@ function Reviews() {
     comment: "",
   });
 
-  // Fetch customer reviews
   const fetchReviews = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/reviews"
+        `${API_URL}/api/reviews`
       );
 
       setReviews(response.data.reviews || []);
@@ -34,7 +35,6 @@ function Reviews() {
     fetchReviews();
   }, []);
 
-  // Handle form input
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -44,7 +44,6 @@ function Reviews() {
     }));
   };
 
-  // Submit review
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("");
@@ -62,7 +61,7 @@ function Reviews() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/reviews",
+        `${API_URL}/api/reviews`,
         {
           ...formData,
           customerName: formData.customerName.trim(),
@@ -82,7 +81,6 @@ function Reviews() {
       });
 
       await fetchReviews();
-
     } catch (error) {
       setMessage(
         error.response?.data?.message ||
@@ -96,7 +94,6 @@ function Reviews() {
   return (
     <section className="reviews-section" id="reviews">
       <div className="reviews-container">
-
         <div className="reviews-heading">
           <p className="reviews-subtitle">CUSTOMER EXPERIENCES</p>
           <h2>What Our Guests Say</h2>
@@ -106,7 +103,6 @@ function Reviews() {
           </p>
         </div>
 
-        {/* Review Form */}
         <div className="review-form-card">
           <h3>Share Your Experience</h3>
 
@@ -160,10 +156,7 @@ function Reviews() {
               {formData.comment.length}/500 characters
             </p>
 
-            <button
-              type="submit"
-              disabled={submitting}
-            >
+            <button type="submit" disabled={submitting}>
               {submitting ? "Submitting..." : "Submit Review"}
             </button>
 
@@ -175,7 +168,6 @@ function Reviews() {
           </form>
         </div>
 
-        {/* Customer Reviews */}
         <div className="customer-reviews">
           <h3>Guest Reviews</h3>
 
@@ -193,7 +185,6 @@ function Reviews() {
                   </div>
 
                   <h4>{review.customerName}</h4>
-
                   <p>{review.comment}</p>
 
                   <span>
@@ -206,7 +197,6 @@ function Reviews() {
             </div>
           )}
         </div>
-
       </div>
     </section>
   );

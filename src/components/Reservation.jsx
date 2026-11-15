@@ -2,6 +2,8 @@
 import { useState } from "react";
 import axios from "axios";
 
+const API_URL = "https://urban-plate-2.onrender.com";
+
 function Reservation() {
   const [formData, setFormData] = useState({
     name: "",
@@ -24,13 +26,12 @@ function Reservation() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     setLoading(true);
     setError("");
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/reservations",
+        `${API_URL}/api/reservations`,
         {
           ...formData,
           guests: Number(formData.guests),
@@ -65,19 +66,11 @@ function Reservation() {
 
   return (
     <section className="booking-section" id="reservation">
-
       {submittedData ? (
-
         <div className="confirmation-card">
-
           <div className="success-icon">✓</div>
-
           <p className="eyebrow">THE URBAN PLATE</p>
-
-          <h2>
-            Thank <span>You!</span>
-          </h2>
-
+          <h2>Thank <span>You!</span></h2>
           <h3>Your Table Awaits.</h3>
 
           <p className="confirmation-text">
@@ -86,32 +79,26 @@ function Reservation() {
           </p>
 
           <div className="booking-details">
-
             <div>
               <span>Guest Name</span>
               <strong>{submittedData.name}</strong>
             </div>
-
             <div>
               <span>Email Address</span>
               <strong>{submittedData.email}</strong>
             </div>
-
             <div>
               <span>Reservation Date</span>
               <strong>{submittedData.date}</strong>
             </div>
-
             <div>
               <span>Reservation Time</span>
               <strong>{submittedData.time}</strong>
             </div>
-
             <div>
               <span>Number of Guests</span>
               <strong>{submittedData.guests}</strong>
             </div>
-
           </div>
 
           <p className="confirmation-note">
@@ -124,33 +111,21 @@ function Reservation() {
           >
             Make Another Reservation
           </button>
-
         </div>
-
       ) : (
-
         <>
           <div className="booking-heading">
-
-            <p className="eyebrow">
-              BOOK YOUR EXPERIENCE
-            </p>
-
-            <h2>
-              Reserve Your <span>Table.</span>
-            </h2>
-
+            <p className="eyebrow">BOOK YOUR EXPERIENCE</p>
+            <h2>Reserve Your <span>Table.</span></h2>
             <p>
               Make your dining experience unforgettable.
             </p>
-
           </div>
 
           <form
             className="booking-form"
             onSubmit={handleSubmit}
           >
-
             <div className="form-group">
               <label>Your Name</label>
               <input
@@ -235,11 +210,9 @@ function Reservation() {
             >
               {loading ? "Submitting..." : "Confirm Reservation"}
             </button>
-
           </form>
         </>
       )}
-
     </section>
   );
 }
