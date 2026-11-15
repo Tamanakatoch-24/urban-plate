@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Menu from "./components/Menu";
 import About from "./components/About";
+import Reservation from "./components/Reservation";
 import Footer from "./components/Footer";
 
 import "./App.css";
@@ -10,37 +11,22 @@ import "./App.css";
 function App() {
   return (
     <>
+      {/* Navigation */}
       <Navbar />
 
+      {/* Hero Section */}
       <Hero />
 
+      {/* Restaurant Menu */}
       <Menu />
 
+      {/* About Our Restaurant */}
       <About />
 
-      <section className="reservation" id="reservation">
+      {/* Table Reservation Form */}
+      <Reservation />
 
-        <p className="eyebrow">
-          YOUR TABLE IS WAITING
-        </p>
-
-        <h2>
-          Make Your Evening <span>Special.</span>
-        </h2>
-
-        <p>
-          Join us for delicious food and unforgettable memories.
-        </p>
-
-        <a
-          href="mailto:hello@theurbanplate.com?subject=Table%20Reservation"
-          className="primary-btn"
-        >
-          Reserve Your Table
-        </a>
-
-      </section>
-
+      {/* Website Footer */}
       <Footer />
     </>
   );
