@@ -96,6 +96,16 @@ GitHub: https://github.com/Tamanakatoch-24
 - Customer accounts
 - Additional dashboard analytics
 
+  
+## 📸 Project Screenshots
+
+### Customer Website
+![Customer Website](customer-home.png)
+
+### Admin Dashboard
+![Admin Dashboard](admin-dashboard.png)
+
+
 ---
 
 ⭐ If you like this project, consider starring the repository.
