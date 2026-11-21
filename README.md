@@ -1,16 +1,101 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+# 🍽️ Urban Plate 2 — Full Stack Restaurant Website
 
-Currently, two official plugins are available:
+A modern, responsive restaurant website with an online food ordering interface and a secure admin dashboard.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Built as a full-stack web development portfolio project.
 
-## React Compiler
+## 🌐 Live Demo
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Customer Website: https://urban-plate-two.vercel.app/
+- Admin Dashboard: https://urban-plate-two.vercel.app/admin
 
-## Expanding the Oxlint configuration
+Note: Admin access is restricted.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## ✨ Features
+
+### Customer Side
+- Browse restaurant food items
+- Explore the food menu
+- Add products to cart
+- Place food orders
+- Responsive website design
+
+### Admin Side
+- Admin login authentication
+- Add new food products
+- Edit existing products
+- Delete food products
+- View customer orders
+
+## 🛠️ Tech Stack
+
+### Frontend
+- React.js
+- Vite
+- CSS
+- React Router
+- Axios
+
+### Backend
+- Node.js backend
+- bcrypt password hashing
+
+### Deployment
+- Vercel — Frontend
+- Render — Backend
+
+## 📁 Project Structure
+
+urban-plate/
+├── backend/
+├── public/
+├── src/
+├── package.json
+├── vite.config.js
+└── README.md
+
+## 🚀 Run Locally
+
+Clone the repository:
+
+git clone https://github.com/Tamanakatoch-24/urban-plate.git
+
+Navigate to the project:
+
+cd urban-plate
+
+Install dependencies:
+
+npm install
+
+Start the frontend:
+
+npm run dev
+
+The backend must also be configured and running for API-dependent features.
+
+## 🔐 Security
+
+- Admin password protected using bcrypt
+- Sensitive credentials stored in environment variables
+- Admin credentials are not published
+
+## 👩‍💻 Developer
+
+**Tamana Katoch**
+
+Computer Science Engineering Student
+
+GitHub: https://github.com/Tamanakatoch-24
+
+## 📌 Future Enhancements
+
+- Online payment integration
+- Real-time order tracking
+- Customer accounts
+- Additional dashboard analytics
+
+---
+
+⭐ If you like this project, consider starring the repository.
